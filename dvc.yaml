@@ -35,6 +35,7 @@ stages:
     - src/models/training.py
     outs:
     - models/gbr_model.pkl
+
   evaluate:
     cmd: python src/models/evaluate.py
     deps:
@@ -44,4 +45,6 @@ stages:
     - src/models/evaluate.py
     outs:
     - data/predictions.csv
-    - metrics/scores.json
+    metrics:
+    - metrics/scores.json:
+        cache: false
